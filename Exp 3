@@ -1,0 +1,34 @@
+class Employee:
+    def __init__(self, designation: str = "Developer", frontend: bool = False, backend: bool = False):
+        self.designation = designation
+        self.frontend = frontend
+        self.backend = backend
+
+    def __repr__(self): 
+        return '{}: Frontend={} Backend={}'.format(self.designation, self.frontend, self.backend)
+    
+    def verifier(self, Frontend, Backend):
+        if Frontend and Backend:
+            print("Full Stack Developer")
+            return "Full Stack Developer"
+        elif Frontend:
+            return "Frontend Developer"
+        elif Backend:
+            return "Backend Developer"
+        else:
+            print("You are not a developer")
+            return "You are not a developer"
+
+if __name__ == '__main__':
+    firstEmployee = Employee()
+    
+    # Asking for user input and casting the response to boolean based on expected values
+    Frontend_input = input("Are you a frontend developer (True or False): ")
+    Backend_input = input("Are you a backend developer (True or False): ")
+
+    # Convert input strings to boolean based on their content
+    Frontend = Frontend_input.strip().lower() == "true"
+    Backend = Backend_input.strip().lower() == "true"
+    
+    temp = firstEmployee.verifier(Frontend, Backend)
+    print(temp)
