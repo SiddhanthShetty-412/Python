@@ -1,0 +1,30 @@
+from contextlib import contextmanager
+
+
+
+
+@contextmanager
+def genericFileFunction (filename, method):
+    file = open (filename, method)
+    yield file
+    file.close ()
+
+
+if __name__ == '__main__':
+    with genericFileFunction("Siddhanth.txt",'w') as s:
+        s.write("Hello, world!")
+   
+    with genericFileFunction("Siddhanth.txt",'r') as s:
+        content=s.read()
+        print(content)
+
+
+    with genericFileFunction("Siddhanth.txt",'w') as s:
+        s.write("My name is Siddhanth Shetty")
+
+
+    with genericFileFunction("Siddhanth.txt",'r') as s:
+        content=s.read()
+        print(content)      
+   
+   
